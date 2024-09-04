@@ -2,5 +2,5 @@ package com.example.notesapp.model
 
 import android.graphics.Color
 
-class Note(title : String, description : String, color : Int = Color.WHITE) {
+class Note(public var title : String, public var description : String, public var color : Int = Color.WHITE) {
 }
