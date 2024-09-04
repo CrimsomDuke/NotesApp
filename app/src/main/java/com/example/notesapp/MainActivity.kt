@@ -30,7 +30,22 @@ class MainActivity : AppCompatActivity() {
         }
 
         setupNotesRecyclerView()
+        setupButtons();
 
+    }
+
+    private fun setupButtons(){
+        binding.fabAddNote.setOnClickListener{
+            var newNote = Note(
+                "",
+                ""
+            )
+
+            FakeDB.notes.add(0, newNote)
+            (binding.rvNotes.adapter as NoteAdapter).reloadData(0)
+            (binding.rvNotes.adapter as NoteAdapter).noteCreated()
+
+        }
     }
 
     private fun setupNotesRecyclerView(){

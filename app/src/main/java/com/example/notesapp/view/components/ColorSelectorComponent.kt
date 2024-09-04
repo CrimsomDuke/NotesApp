@@ -25,6 +25,16 @@ class ColorSelectorComponent(context: Context?, attrs: AttributeSet?) : LinearLa
         }
     }
 
+    public fun onColorChanged(call : () -> Unit){
+        this.binding.rvColors.adapter.apply {
+            (this as ColorSelectorAdapter).setOnColorChanged(call);
+        }
+    }
+
+    public fun getSelectedColor() : Int{
+        return (binding.rvColors.adapter as ColorSelectorAdapter).getSelectedColor();
+    }
+
     private fun setupRecyclerView(){
         binding.rvColors.adapter = ColorSelectorAdapter(ColorOptions.colors);
         binding.rvColors.layoutManager = LinearLayoutManager(this.context).apply {
