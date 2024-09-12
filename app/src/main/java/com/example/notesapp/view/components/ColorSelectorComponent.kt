@@ -25,6 +25,7 @@ class ColorSelectorComponent(context: Context?, attrs: AttributeSet?) : LinearLa
         }
     }
 
+    //Ahora enviar al adapter
     public fun onColorChanged(call : () -> Unit){
         this.binding.rvColors.adapter.apply {
             (this as ColorSelectorAdapter).setOnColorChanged(call);

@@ -31,6 +31,7 @@ class ColorSelectorAdapter(private var colors : ArrayList<Int>) : RecyclerView.A
 
     override fun onBindViewHolder(holder: ColorSelectorViewHolder, position: Int) {
         holder.bind(colors[position], this::setSelectedColor)
+        //La funcion recibida por el adapter pasa al viewholder
         holder.setOnColorChanged { onColorChanged() }
     }
 
@@ -54,10 +55,9 @@ class ColorSelectorAdapter(private var colors : ArrayList<Int>) : RecyclerView.A
             this.onColorChanged = call;
         }
     }
-
+    //Enviar hacia arriba del embudo el color
     public fun setSelectedColor(color : Int){
         selectedColor = color;
-        notifyItemChanged(colors.indexOf(color));
     }
 
     public fun getSelectedColor() : Int{

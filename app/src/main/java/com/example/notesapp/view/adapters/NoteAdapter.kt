@@ -65,6 +65,8 @@ class NoteAdapter(private var notes : ArrayList<Note>) : RecyclerView.Adapter<No
             binding.modifyDescriptionEditText.setText(note.description);
             binding.colorSelectorComponent.setSelectedColor(note.color);
 
+
+            //envia la funcion de cambiar el background al embudo del color choto
             binding.colorSelectorComponent.onColorChanged {
                 binding.modifyStateLayout.setBackgroundColor(binding.colorSelectorComponent.getSelectedColor());
             }
